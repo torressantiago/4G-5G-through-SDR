@@ -4,11 +4,36 @@ This project aims to emulate LTE (and 5G eventually) by using linux machines and
 For the emulation the [openairinterface project](https://gitlab.eurecom.fr/oai) will be used. Developed at eurecom, it checks every box for a good, flexible, portable and evolving testbed.
 
 # The network
-
+                                                                                      |enp5s0f1:m10                             
+                                                                                        |192.1168.10.110/24                       
+                                                                                        |                                         
+                                                                                        |                                         
+                                                                  +---------------------|----------------------------------------+
+                                          enp5s0f3                                                                               |
+                                          192.168.247.103/24      |192.168.247.102/24   |                                        |
+                                       +---------------+          |     +---------------|  127.0.0.1  +---------------+          |
+             ---------------------------      ENB      ------------------      MME      ---------------      HSS      |          |
+             enp5s0f1                  +--------\------+          |     +----------\----+             +---------------+          |
+             192.168.14.1/24      enp5s0f2       --\              |     enp5s0f1:m11-------\                                     |
+                                  192.168.248.160/24---\          |     172.16.1.102/24     ------\   +---------------+          |
+                                                        --\       |                                ----     SGW-C     |          |
+                                                           --\    |                       enp5s0f1:s11+-------|-------+          |
+                                                              ---\|                       172.16.1.104/24     |enp5s0f1:s5c      |
+                                                                  --\                                         |172.58.58.102/24  |
+                                                                  |  --\                                      |                  |
+                                                                  |     ---\   enp5s0f2                       |enp5s0f1:p5c      |
+                                                                  |         --\192.168.248.159/24             |172.58.58.101/24  |
+                                       +---------------+          |     +---------------+             +-------|-------+          |
+                                       |    Internet   -----------|------    SPGW-U     ---------------     SPGW-C    |          |
+                                       +---------------+          |     +---------------+             +---------------+          |
+                                                                  |            enp5s0f1:sxu         enp5s0f1:sxc                 |
+                                                                  |            172.55.55.102/24 172.55.55.101/24                 |
+                                                                  |                                                          EPC |
+                                                                  +--------------------------------------------------------------+
 # The configuration
 This configuration uses the configuration files found in this repository. Although it should work with more recent iterations of [openairinterface](https://gitlab.eurecom.fr/oai), compatibility is not guaranteed. 
 
-The application presented in this section uses preconfigurated files, as well as scripts, that reconstruct the network shown in the *network* section. For more detail on what to change openairinterface's documentation will be handy. 
+Since this repository aims to be an LTE testbed, the application presented in this section uses preconfigurated files and scripts, that reconstruct the network shown in the *network* section. For more detail on what to change openairinterface's documentation will be handy. 
 
 ## Some useful documentation
 * https://gitlab.eurecom.fr/oai/openairinterface5g/-/wikis/home
@@ -107,6 +132,7 @@ ____
 
 ## Some (hopefully) useful notes
 ### Scripts to simplify configuration
+A script has been developped to simplify configuration. 
 
 ### The certificate problem
 When launching the EPC, there might be an issue because of the repository's certificates while deploying the MME. These certificates are used for authentication by the MME and HSS. All you have to do is update the certificates. These will expire one year after their generation.
@@ -114,7 +140,7 @@ When launching the EPC, there might be an issue because of the repository's cert
 ```bash
 cd EPC_REPO_PATH/openair-cn/SCRIPTS
 ./check_hss_s6a_certificate /usr/local/etc/oai/freeDiameter/ hss.openair4G.eur
-./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter/ nano.openair4G.eur
+./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter/ mme.openair4G.eur
 ```
 
 ### Updating SDR device
