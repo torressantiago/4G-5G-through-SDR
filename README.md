@@ -4,7 +4,7 @@ This project aims to emulate LTE (and 5G eventually) by using linux machines and
 For the emulation the [openairinterface project](https://gitlab.eurecom.fr/oai) will be used. Developed at eurecom, it checks every box for a good, flexible, portable and evolving testbed.
 
 # The network
-                                                                                      |enp5s0f1:m10                             
+                                                                                        |enp5s0f1:m10                             
                                                                                         |192.1168.10.110/24                       
                                                                                         |                                         
                                                                                         |                                         
