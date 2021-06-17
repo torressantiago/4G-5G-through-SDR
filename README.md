@@ -175,3 +175,12 @@ cd cmake_targets
 ```
 ### Configuring the SIM card
 
+# 5G through SDR
+
+## Some useful documentation
+* https://gitlab.eurecom.fr/oai/openairinterface5g/-/wikis/5g-nr-development-and-setup
+* https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/FEATURE_SET.md
+* https://gitlab.eurecom.fr/oai/openairinterface5g/blob/develop/doc/BUILD.md
+* https://gitlab.eurecom.fr/oai/openairinterface5g/blob/develop/doc/RUNMODEM.md
+* https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/TESTING_GNB_W_COTS_UE.md
+* https://gitlab.eurecom.fr/oai/openairinterface5g/uploads/f7386f3a64806fd6b2ac1fc3d0252fff/UE_FAPI-like_interface.docx
