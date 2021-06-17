@@ -39,6 +39,7 @@ Since this repository aims to be an LTE testbed, the application presented in th
 * https://gitlab.eurecom.fr/oai/openairinterface5g/-/wikis/home
 * https://gitlab.eurecom.fr/oai/openairinterface5g/-/wikis/HowToConnectCOTSUEwithOAIeNBNew
 * https://www.openairinterface.org/docs/workshop/8_Fall2019Workshop-Beijing/Training/2019-12-03-KALTENBERGER-1.pdf
+* https://hackmd.io/@7n_KjKYsR_aGG_QMn0FGFA/BkE8iNFES
 
 ## Project structure
                               +---------------+                             

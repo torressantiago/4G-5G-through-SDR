@@ -1,2 +1,2 @@
-openair-cn/ filter=lfs diff=lfs merge=lfs -text
-openairinterface5g/ filter=lfs diff=lfs merge=lfs -text
+openair-cn.7z filter=lfs diff=lfs merge=lfs -text
+openairinterface5g.7z filter=lfs diff=lfs merge=lfs -text
