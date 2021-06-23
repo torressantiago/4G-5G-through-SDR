@@ -1,0 +1,47 @@
+Pour changer de MCC et de MNC il faut modifier les lignes suivantes dans les fichiers suivants:
+
+MME.CONF
+
+GUMMEI_LIST = ( 
+         {MCC="209" ; MNC="94"; MME_GID="32768" ; MME_CODE="3"; }                   # YOUR GUMMEI CONFIG HERE
+    );
+
+    TAI_LIST = ( 
+         {MCC="209" ; MNC="94";  TAC = "1"; }                       # YOUR TAI CONFIG HERE
+    );
+
+
+    WRR_LIST_SELECTION = (
+        {ID="tac-lb01.tac-hb00.tac.epc.mnc094.mcc209.3gppnetwork.org" ;      SGW_IPV4_ADDRESS_FOR_S11="172.16.1.104/24";}
+    );
+
+-------------
+
+SPGW-C.conf
+
+ APN_LIST = (
+       # IPV4_POOL, IPV6_POOL are index in IPV4_LIST, IPV6_LIST, PDN_TYPE choice in {IPv4, IPv6, IPv4v6}
+      {APN_NI = "default.mnc094.mcc209.gprs"; PDN_TYPE = "IPv4"; IPV4_POOL  = 0; IPV6_POOL = -1}
+    );
+
+
+----------
+
+enb.band7.tm1.50PRB.usrp210.conf
+
+plmnlist = {}
+
+---
+
+Sur les cartes sim
+
+PLMNwAct= 20994:4000;20994:80000;20994:0080
+
+------------
+Il faut effectuer les commandes suivantes (changer apn et imsi)
+
+./data_provisioning_users --apn default.mnc094.mcc209.gprs --apn2 internet --key fec86ba6eb707ed08905757b1bb44b8f --imsi-first 209940000000001 --msisdn-first 001011234561000 --mme-identity mme.openair4G.eur --no-of-users 10 --realm openair4G.eur --truncate True --verbose True --cassandra-cluster 127.0.0.1
+
+./data_provisioning_mme --id 3 --mme-identity mme.openair4G.eur --realm openair4G.eur --ue-reachability 1 --truncate True --verbose True -C 127.0.0.1
+
+oai_hss -j $PREFIX/hss_rel14.json --onlyloadkey

@@ -1,0 +1,5 @@
+./data_provisioning_users --apn default.mnc093.mcc208.gprs --apn2 internet --key fec86ba6eb707ed08905757b1bb44b8f --imsi-first 208930000000001 --msisdn-first 001011234561000 --mme-identity mme.openair4G.eur --no-of-users 10 --realm openair4G.eur --truncate True --verbose True --cassandra-cluster 127.0.0.1
+
+./data_provisioning_mme --id 3 --mme-identity mme.openair4G.eur --realm openair4G.eur --ue-reachability 1 --truncate True --verbose True -C 127.0.0.1
+
+oai_hss -j $PREFIX/hss_rel14.json --onlyloadkey

@@ -1,0 +1,12 @@
+apn telephon,e
+
+mis ene page des trous dans le s fichires de conf
+donne les commandes cd
+expliuer ce qu'on change dans la conf
+d'abord faire l'EPC
+ne pas demander de lancer le RAN avec l'EPC
+mettre ne evidence le fait qu'il faut copier oia dans $prefix
+pas oublier sudo pour modif un fichier oai
+faire un script pour les commandes avant SPGW
+dire de modifier le enb band 7 puis de le copier
+it checkout sur eNB
