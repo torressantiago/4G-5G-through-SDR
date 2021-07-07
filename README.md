@@ -86,7 +86,7 @@ Once the oai repository is correctly placed, the network must be configured corr
 
 ```bash 
 # MME
-sudo ifconfig enp5s0f3:m11 172.16.1.102/24 up
+sudo ifconfig enp5s0f1:m11 172.16.1.102/24 up
 sudo ip addr add 192.168.247.102/24 dev enp5s0f3 # M1C
 
 # SPGW C
